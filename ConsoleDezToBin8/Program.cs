@@ -21,27 +21,40 @@ namespace ConsoleDezToBin8
             {
                 Console.Write("\nBitte eine Zahl im Dezimalsystem eingeben (0..255): ");
                 string strDez = Console.ReadLine();
-                int nDez = Convert.ToInt32(strDez);
-                string strBin = "";
-
-                if ((nDez < 256) && (nDez >= 0))
-                {
-                    int nMod = 0;
-                    int nDiv = nDez;
-                    
-                    for (int i = 0; i < 8; i++)
-                    {
-                        nMod = nDiv % 2;
-                        nDiv = nDiv / 2;
-                        strBin = nMod + strBin;
-                    }
-                }
                 
+                string strBin = DezToBin8(strDez);
+
                 Console.Write("Die Darstellung im Binärsystem lautet: ");
                 Console.WriteLine(strBin);
+
                 Console.Write("Programm be(e)nden? ");
                 strEnde = Console.ReadLine();
-            }                    
+            }
+        }
+
+        private static string DezToBin8(string strDez)
+        {
+            string strBin = "";
+            int nDez = Convert.ToInt32(strDez);
+
+            if ((nDez < 256) && (nDez >= 0))
+            {
+                int nMod = 0;
+                int nDiv = nDez;
+
+                for (int i = 0; i < 8; i++)
+                {
+                    nMod = nDiv % 2;
+                    nDiv = nDiv / 2;
+                    strBin = nMod + strBin;
+                }
+            }
+            else if (nDez > 255)
+                strBin = "Fehler, Zahl zu groß!";
+            else
+                strBin = "Fehler, Zahl zu klein!";
+
+            return strBin;
         }
     }
 }
