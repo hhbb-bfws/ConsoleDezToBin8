@@ -15,12 +15,11 @@ namespace ConsoleDezToBin8
             Console.Clear();
 
             Console.WriteLine("ConsoleDezToBin8");
-            Console.WriteLine();
 
             string strEnde = "";
             while (strEnde != "e")
             {
-                Console.Write("Bitte geben Sie eine Zahl im Dezimalsystem ein (0..255): ");
+                Console.Write("\nBitte eine Zahl im Dezimalsystem eingeben (0..255): ");
                 string strDez = Console.ReadLine();
                 int nDez = Convert.ToInt32(strDez);
 
@@ -37,7 +36,7 @@ namespace ConsoleDezToBin8
 
                 Console.Write("Die Darstellung im Binärsystem lautet: ");
                 Console.WriteLine(strBin);
-                Console.Write("\nProgramm be(e)nden? ");
+                Console.Write("Programm be(e)nden? ");
                 strEnde = Console.ReadLine();
             }                    
         }
